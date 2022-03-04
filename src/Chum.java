@@ -59,10 +59,12 @@ public class Chum {
                 System.out.print(testArr2[j][i] + " ");
             }
         }
+
+        System.out.println(columnCheck(testArr2));
     }
     public static < E > boolean contains(E[] arr, E tar){
         for(E ele: arr){
-            if(ele.equals(tar)){
+            if(ele != null && ele.equals(tar)){
                 return true;
             }
         }
@@ -70,15 +72,15 @@ public class Chum {
     }
     public static < E > boolean columnCheck(E[][] matrix){
         for (int i = 0; i < matrix[0].length; i++) {
-            Object[] col = new Object[matrix[0].length];
+            Object[] col = new Object[matrix.length];
             for (int j = 0; j < matrix.length; j++) {
-                if(contains(col, matrix[j][i])){
+                if(contains((E[])col, matrix[j][i])){
                     return false;
                 }
                 col[j] = matrix[j][i];
             }
         }
-        return
+        return true;
     }
 
 }
